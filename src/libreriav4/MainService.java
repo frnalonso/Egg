@@ -25,19 +25,21 @@ public class MainService {
     public void main() {
         try {
             
-            Editorial editorial = new Editorial("Editorial3", true);
-            Author author = new Author("Autor3", true);
-            Book book = new Book(777, "Book-Six", 2020, 10, 5, 5, true, author, editorial);
+            Editorial editorial = new Editorial("Editorial4", true);
+            Author author = new Author("Autor4", true);
+            Book book = new Book(357, "Book-Seven", 1900, 10, 2, 2, true, author, editorial);
             
-//            authorService.createAuthor(author);
-//            editorialService.createEditorial(editorial);
-//            bookService.createBook(book);
+            authorService.createAuthor(author);
+           editorialService.createEditorial(editorial);
+          bookService.createBook(book);
 
 
               //authorService.searchAuthor(searchName());
               //bookService.searchBook(searchISBN());
               //bookService.searchBookForTitle(searchName());
-              bookService.searchBooksForAuthor(searchName());
+              //bookService.searchBooksForAuthor(searchName());
+              bookService.searchBooksForEditorial(searchName());
+              
            
             
         } catch (Exception e) {

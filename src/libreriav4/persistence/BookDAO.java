@@ -35,10 +35,20 @@ public class BookDAO extends DAO {
     
     public List<Book> searchBookForAuthor(String author) throws Exception {
         try {
-            return em.createQuery("SELECT b FROM Book b WHERE b.author = :author").setParameter("author", author).getResultList();
+            return em.createQuery("SELECT b FROM Book b, Author a WHERE a.id = b.id AND a.name = :author").setParameter("author", author).getResultList();
         
         } catch (Exception e) {
             throw new Exception("No hay books con el mismo desde DAO.");
         }
     }
+    
+    public List<Book> searchBookForEditorial(String editorial) throws Exception {
+        try {
+           return em.createQuery("SELECT b FROM Book b, Editorial e WHERE e.id = b.id AND e.name = :editorial").setParameter("editorial", editorial).getResultList();
+            
+        } catch (Exception e) {
+            throw new Exception("No se puede desde BookDAO.");
+        }
+    }
+   
 }

@@ -49,4 +49,18 @@ public class BookService {
         }
     }
     
+    public void searchBooksForEditorial(String editorial) {
+        try {
+            List<Book> book = daoBook.searchBookForEditorial(editorial);
+            if(book.isEmpty()) {
+                System.out.println("No hay libros con ese editorial");
+            } else {
+                for (Book book1 : book) {
+                    System.out.println(book1.toString());
+                }
+            }
+        } catch (Exception e) {
+        }
+    }
+    
 }
